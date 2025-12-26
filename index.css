@@ -102,6 +102,22 @@
   cursor: pointer;
 }
 
+/* 완료된 todo */
+.isdone-todo-task {
+  display: flex;
+  justify-content: space-between;
+  color: darkgray;
+  font-size: 17px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  padding: 22px 20px;
+}
+
+.isdone-todo-task:hover {
+  border-color: darkgray;
+  cursor: pointer;
+}
+
 .todo-checkbox {
   cursor: pointer;
   transform: scale(1.5);
