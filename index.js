@@ -111,11 +111,22 @@ function addTodo(){ // 내용 작성된 todo를 추가
 
         // 추가 완료됐으면 input 값 초기화
         document.getElementById('input-value').value = "";
+        showSuccessText();
     }
 
 }
 
 
+// 완료 메시지 띄우기
+function showSuccessText(){
+    const mainContainer = document.getElementById('main-container');
+
+    const successDiv = document.createElement('div');
+    successDiv.textContent = "추가가 완료되었습니다! 🎉";
+    successDiv.className = "success-text";
+
+    mainContainer.appendChild(successDiv);
+}
 
 
 function inputTodo(){ // todo의 내용을 입력하는 함수

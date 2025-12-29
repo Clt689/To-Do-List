@@ -7,7 +7,6 @@
   border-radius: 5px;
   text-align: center;
   margin: 0 auto;
-  height: 100%;
 }
 
 .header {
@@ -17,11 +16,11 @@
 .main-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   height: 10%;
   padding: 10px 10px 13px 10px;
   text-align: center;
-  gap: 15px;
+  gap: 10px;
   border-bottom: solid 1px darkgray;
 }
 
@@ -85,7 +84,6 @@
   padding: 20px 10px;
   display: flex;
   flex-direction: column;
-  height: 100%;
   gap: 15px;
 }
 
@@ -129,4 +127,15 @@
   padding: 20px 0px;
   color: #333333;
   font-size: 17px;
+}
+
+.success-text {
+  font-size: 14px;
+  background-color: #E5F9F1;
+  color: #00894F;
+  border: 1px solid #BFF0DB;
+  border-radius: 8px;
+  padding: 6px;
+  width: fit-content;
+  margin: 0 auto;
 }
