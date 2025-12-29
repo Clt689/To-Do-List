@@ -35,7 +35,7 @@ todoContainer.addEventListener('change', (event) => {
   renderTodos(todos);
 });
 
-function renderTodos(arr) { // 현재 todo를 모두 렌더링                                     
+function renderTodos(arr) { // 현재 todo를 모두 렌더링
     const todoContainer = document.getElementById('todo-container');
 
     const undoneTodo = arr.filter(todo => !todo.isDone);
@@ -96,7 +96,7 @@ function searchTodo(event) {
 function addTodo(){ // 내용 작성된 todo를 추가
     
     if (document.getElementById('input-value').value.trim() == ""){
-        alertMessage();
+        showAlertMessage();
         document.getElementById('input-value').focus();
     } else {
         // 1. 작성한 내용의 객체를 todos 배열에 추가
@@ -125,18 +125,24 @@ function showSuccessText(){
     successDiv.textContent = "추가가 완료되었습니다! 🎉";
     successDiv.className = "success-text";
 
+    console.log(document.getElementsByClassName('success-text'));
     mainContainer.appendChild(successDiv);
+
+    // TODO: 완료 메시지는 최대 한 개까지 가능
 }
 
 // 빈 내용 입력 시 메시지 추가
-function alertMessage() {
+function showAlertMessage() {
     const mainContainer = document.getElementById('main-container');
 
     const alertBlankDiv = document.createElement('div');
-    alertBlankDiv.textContent = "내용을 확인해 주세요!";
+    alertBlankDiv.textContent = "내용을 입력해 주세요.";
     alertBlankDiv.className = "blank-text";
 
     mainContainer.appendChild(alertBlankDiv);
+
+    // TODO: 빈칸 알림 메시지는 최대 한 개까지 가능
+    // TODO: 무조건 완료 메시지보다 위에 있어야 함
 }
 
 function inputTodo(){ // todo의 내용을 입력하는 함수

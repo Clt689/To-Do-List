@@ -39,6 +39,7 @@
 }
 
 .add-todo-button {
+  max-width: 101px;
   width: 27%;
   color: white;
   border: none;
