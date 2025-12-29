@@ -96,7 +96,7 @@ function searchTodo(event) {
 function addTodo(){ // 내용 작성된 todo를 추가
     
     if (document.getElementById('input-value').value.trim() == ""){
-        alert('내용을 입력해 주세요!');
+        alertMessage();
         document.getElementById('input-value').focus();
     } else {
         // 1. 작성한 내용의 객체를 todos 배열에 추가
@@ -128,6 +128,16 @@ function showSuccessText(){
     mainContainer.appendChild(successDiv);
 }
 
+// 빈 내용 입력 시 메시지 추가
+function alertMessage() {
+    const mainContainer = document.getElementById('main-container');
+
+    const alertBlankDiv = document.createElement('div');
+    alertBlankDiv.textContent = "내용을 확인해 주세요!";
+    alertBlankDiv.className = "blank-text";
+
+    mainContainer.appendChild(alertBlankDiv);
+}
 
 function inputTodo(){ // todo의 내용을 입력하는 함수
 

@@ -20,7 +20,7 @@
   height: 10%;
   padding: 10px 10px 13px 10px;
   text-align: center;
-  gap: 10px;
+  /* gap: 10px; */
   border-bottom: solid 1px darkgray;
 }
 
@@ -137,5 +137,13 @@
   border-radius: 8px;
   padding: 6px;
   width: fit-content;
-  margin: 0 auto;
+  margin: 15px auto 10px auto;
+}
+
+.blank-text {
+  margin-top: 3px;
+  color: red;
+  width: fit-content;
+  margin-left: 2%;
+  font-size: 13px;
 }
