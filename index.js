@@ -94,9 +94,27 @@ function searchTodo(event) {
 }
 
 function addTodo(){ // 내용 작성된 todo를 추가
-    // 입력된 게 없으면 alert해줘야 함
+    
+    if (document.getElementById('input-value').value.trim() == ""){
+        alert('내용을 입력해 주세요!');
+        document.getElementById('input-value').focus();
+    } else {
+        // 1. 작성한 내용의 객체를 todos 배열에 추가
+        todos.push({
+            id: todos.length,
+            contents: document.getElementById('input-value').value,
+            isDone: false
+        });
+        
+        // todos에 반영 후 렌더링
+        renderTodos(todos);
+
+        // 추가 완료됐으면 input 값 초기화
+        document.getElementById('input-value').value = "";
+    }
 
 }
+
 
 
 
@@ -104,9 +122,4 @@ function inputTodo(){ // todo의 내용을 입력하는 함수
 
 }
 
-function sortTodo(){ // 완료된 Todo는 제일 밑으로
-    // 1. checkbox들의 checked인 애들은 제일 밑으로
-    // 2. todo 재정렬
-
-}
 
