@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="./index.css" />
     <script src="./index.js" defer></script>
   </head>
-  <body class="body" onload="renderTodos()">
+  <body class="body" onload="renderTodos(todos)">
     <header class="header">
       <!-- <h1 style="font-size: 40px">To Do List ✅</h1>
       <h3>2025. 12. 25 (목)</h3> -->
     </header>
     <main class="main-container">
       <div class="search-container">
-        <input class="searchbar" placeholder="검색어를 입력하세요..." />
-        <button class="search-button">검색</button>
+        <input id="search-value" value="" class="searchbar" placeholder="검색어를 입력하세요..." />
+        <button onclick="searchTodo()" class="search-button">검색</button>
       </div>
       <div class="add-button-container">
         <button class="add-todo-button" onclick="addTodo()">+ 추가하기</button>
