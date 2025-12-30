@@ -113,6 +113,11 @@ function addTodo(){ // 내용 작성된 todo를 추가
         document.getElementById('input-value').value = "";
         showSuccessText();
         
+        // 완료 메시지는 2초 후에 사라짐
+        setTimeout(()=>{
+            let existingSuccessMessage = document.getElementById('success-text');
+            existingSuccessMessage.style.display = 'none';
+        }, 2000);
     }
 }
 
