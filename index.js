@@ -101,7 +101,7 @@ function addTodo(){ // 내용 작성된 todo를 추가
     } else {
         // 1. 작성한 내용의 객체를 todos 배열에 추가
         todos.push({
-            id: todos.length,
+            id: todos.length,  // TODO: 추가 확인 필요
             contents: document.getElementById('input-value').value,
             isDone: false
         });
@@ -112,34 +112,47 @@ function addTodo(){ // 내용 작성된 todo를 추가
         // 추가 완료됐으면 input 값 초기화
         document.getElementById('input-value').value = "";
         showSuccessText();
+        
     }
-
 }
 
 
 // 완료 메시지 띄우기
 function showSuccessText(){
-    const mainContainer = document.getElementById('main-container');
+    let existingBlankMessage = document.getElementById('blank-text');
+    let existingSuccessMessage = document.getElementById('success-text');
+    if (!existingSuccessMessage){
+        const mainContainer = document.getElementById('main-container');
+    
+        const successDiv = document.createElement('div');
+        successDiv.textContent = "추가가 완료되었습니다! 🎉";
+        successDiv.className = "success-text";
+        successDiv.id = 'success-text';
+    
+        mainContainer.appendChild(successDiv);
 
-    const successDiv = document.createElement('div');
-    successDiv.textContent = "추가가 완료되었습니다! 🎉";
-    successDiv.className = "success-text";
-
-    console.log(document.getElementsByClassName('success-text'));
-    mainContainer.appendChild(successDiv);
+        if(existingBlankMessage) {
+            existingBlankMessage.style.display = 'none';
+        }
+    } 
 
     // TODO: 완료 메시지는 최대 한 개까지 가능
 }
 
 // 빈 내용 입력 시 메시지 추가
 function showAlertMessage() {
-    const mainContainer = document.getElementById('main-container');
+    let existingBlankMessage = document.getElementById('blank-text');
 
-    const alertBlankDiv = document.createElement('div');
-    alertBlankDiv.textContent = "내용을 입력해 주세요.";
-    alertBlankDiv.className = "blank-text";
-
-    mainContainer.appendChild(alertBlankDiv);
+    if (!existingBlankMessage) {
+        const mainContainer = document.getElementById('main-container');
+    
+        const alertBlankDiv = document.createElement('div');
+        alertBlankDiv.textContent = "내용을 입력해 주세요.";
+        alertBlankDiv.className = "blank-text";
+        alertBlankDiv.id = "blank-text";
+    
+        mainContainer.appendChild(alertBlankDiv);
+    }
 
     // TODO: 빈칸 알림 메시지는 최대 한 개까지 가능
     // TODO: 무조건 완료 메시지보다 위에 있어야 함
