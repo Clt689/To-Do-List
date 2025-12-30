@@ -139,7 +139,25 @@ function showSuccessText(){
         if(existingBlankMessage) {
             existingBlankMessage.style.display = 'none';
         }
-    } 
+    } else if (existingBlankMessage && !existingSuccessMessage){
+        existingBlankMessage.style.display = 'none';
+        const mainContainer = document.getElementById('main-container');
+    
+        const successDiv = document.createElement('div');
+        successDiv.textContent = "추가가 완료되었습니다! 🎉";
+        successDiv.className = "success-text";
+        successDiv.id = 'success-text';
+    
+        mainContainer.appendChild(successDiv);
+        
+        // 완료 메시지는 2초 후에 사라짐
+        setTimeout(()=>{
+            let existingSuccessMessage = document.getElementById('success-text');
+            existingSuccessMessage.style.display = 'none';
+        }, 2000);
+    }
+
+    console.log(document.getElementById('input-value').value);
 
     // TODO: 완료 메시지는 최대 한 개까지 가능
 }
