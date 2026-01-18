@@ -28,7 +28,7 @@ todoContainer.addEventListener("change", (event) => {
   if (!event.target.matches('input[type="checkbox"]')) return;
 
   const todoDiv = event.target.closest(".todo-task");
-  const id = Number(todoDiv.dataset.id);
+  const id = Number(todoDiv.dataset.id); // todoDiv.dataset.id는 타입이 string
 
   const todo = todos.find((data) => data.id === id);
   todo.isDone = event.target.checked;
@@ -38,6 +38,7 @@ todoContainer.addEventListener("change", (event) => {
 });
 
 function setDate() {
+  // 자동으로 오늘 날짜 설정
   let today = new Date();
 
   let year = today.getFullYear();
@@ -74,13 +75,13 @@ function renderTodos(arr) {
       (todo) => `
         <div class="todo-task" data-id="${todo.id}">
           <span>${todo.contents}</span>
-          <input 
+          <input
             type="checkbox"
             class="todo-checkbox"
             ${todo.isDone ? "checked" : ""}
           />
         </div>
-        `
+        `,
     )
     .join("");
 
@@ -96,7 +97,7 @@ function searchTodo(event) {
   const filteredTodos = [...todos].filter(
     (todo) =>
       todo.contents.includes(searchValue.toLowerCase()) ||
-      todo.contents.includes(searchValue.toUpperCase())
+      todo.contents.includes(searchValue.toUpperCase()),
   );
 
   // TODO: 엔터 시 검색 가능 추가
