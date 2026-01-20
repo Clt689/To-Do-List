@@ -150,18 +150,18 @@ function addTodo() {
   }
 }
 
-function deleteTodo(event) { // todo를 삭제
+function deleteTodo(event) {
+  // todo를 삭제
   // 1. 선택한 해당 todo의 id 값을 받아와야 함
-  const todoId = event.target.closest('div').dataset.id;
+  const todoId = event.target.closest("div").dataset.id;
 
   // 2. todos 배열에서 해당 id 값을 갖고 있는 요소를 splice(인덱스,1)를 통해 삭제
-  const getIndex = todos.filter((todo) => todo.id == todoId)
+  const getIndex = todos.findIndex((todo) => todo.id == todoId);
   todos.splice(getIndex, 1);
 
   // 3. 삭제가 완료되면 renderTodos(todos)를 통해 다시 렌더링
   renderTodos(todos);
 }
-
 
 // 완료 메시지 띄우기
 function showSuccessText() {
