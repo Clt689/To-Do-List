@@ -74,12 +74,15 @@ function renderTodos(arr) {
     .map(
       (todo) => `
         <div class="todo-task" data-id="${todo.id}">
-          <span>${todo.contents}</span>
-          <input
-            type="checkbox"
-            class="todo-checkbox"
-            ${todo.isDone ? "checked" : ""}
-          />
+          <div style="gap:10px; display:inline-flex; line-height: 1;">  
+            <input
+              type="checkbox"
+              class="todo-checkbox"
+              ${todo.isDone ? "checked" : ""}
+            />
+            <span>${todo.contents}</span>
+          </div>
+          <img src="./images/delete-icon.png" class="delete-icon">
         </div>
         `,
     )
