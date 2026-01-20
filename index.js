@@ -1,6 +1,3 @@
-// 전역 변수
-let id = 0;
-
 const days = ["(일)", "(월)", "(화)", "(수)", "(목)", "(금)", "(토)"];
 
 // todo 배열
@@ -82,7 +79,7 @@ function renderTodos(arr) {
             />
             <span>${todo.contents}</span>
           </div>
-          <img src="./images/delete-icon.png" class="delete-icon">
+          <img onclick="deleteTodo(event)" src="./images/delete-icon.png" class="delete-icon">
         </div>
         `,
     )
@@ -153,6 +150,19 @@ function addTodo() {
   }
 }
 
+function deleteTodo(event) { // todo를 삭제
+  // 1. 선택한 해당 todo의 id 값을 받아와야 함
+  const todoId = event.target.closest('div').dataset.id;
+
+  // 2. todos 배열에서 해당 id 값을 갖고 있는 요소를 splice(인덱스,1)를 통해 삭제
+  const getIndex = todos.filter((todo) => todo.id == todoId)
+  todos.splice(getIndex, 1);
+
+  // 3. 삭제가 완료되면 renderTodos(todos)를 통해 다시 렌더링
+  renderTodos(todos);
+}
+
+
 // 완료 메시지 띄우기
 function showSuccessText() {
   let BlankWarningMessage = document.getElementById("blank-text");
@@ -194,7 +204,6 @@ function showSuccessText() {
 
 // 빈 내용 입력 시 메시지 추가
 function showAlertMessage() {
-  console.log("빈칸 경고!");
   let BlankWarningMessage = document.getElementById("blank-text");
   let SuccessMessage = document.getElementById("success-text");
 
