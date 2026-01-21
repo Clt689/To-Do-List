@@ -79,7 +79,10 @@ function renderTodos(arr) {
             />
             <span>${todo.contents}</span>
           </div>
-          <img onclick="deleteTodo(event)" src="./images/delete-icon.png" class="delete-icon">
+          <div style="display:flex; gap:10px; align-items: center;">
+            <span class="edit-text">수정</span>
+            <img onclick="deleteTodo(event)" src="./images/delete-icon.png" class="delete-icon">
+          </div>
         </div>
         `,
     )
