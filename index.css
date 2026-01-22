@@ -134,12 +134,18 @@
 }
 
 .edit-text {
+  /* border: 0.1px solid #ccc; */
   font-size: 15px;
   color: #aaa;
   line-height: 1;
   background-color: #eee;
   padding: 6px;
   border-radius: 3px;
+}
+
+.edit-text:hover {
+  color: whitesmoke;
+  background-color: #ddd;
 }
 
 .delete-icon {
