@@ -9,7 +9,7 @@ let todos = [
   },
   {
     id: 1,
-    contents: "To Do 2",
+    contents: "To Do 2 To Do 2 To Do 2 To Do 2 To Do 2 To Do 2 ",
     isDone: false,
   },
   {
@@ -19,6 +19,8 @@ let todos = [
   },
 ];
 
+
+// todo 완료(체크)할 때마다 리렌더링하는 로직
 const todoContainer = document.getElementById("todo-container");
 
 todoContainer.addEventListener("change", (event) => {
@@ -33,6 +35,11 @@ todoContainer.addEventListener("change", (event) => {
   // todo 리렌더링
   renderTodos(todos);
 });
+
+
+// todo 수정 시
+const todoItem = document.get
+
 
 function setDate() {
   // 자동으로 오늘 날짜 설정
@@ -71,16 +78,16 @@ function renderTodos(arr) {
     .map(
       (todo) => `
         <div class="todo-task" data-id="${todo.id}">
-          <div style="gap:10px; display:inline-flex; line-height: 1;">  
+          <div style="width:80%; gap:10px; display:inline-flex; line-height: 1;">  
             <input
               type="checkbox"
               class="todo-checkbox"
               ${todo.isDone ? "checked" : ""}
             />
-            <span>${todo.contents}</span>
+            <input class="todo-inputbox" value="${todo.contents}" disabled />
           </div>
-          <div style="display:flex; gap:12px; align-items: center;">
-            <span class="edit-text">수정</span>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <button type="button" class="edit-button" onclick="editTodo(event)">수정</button>
             <img onclick="deleteTodo(event)" src="./images/delete-icon.png" class="delete-icon">
           </div>
         </div>
@@ -90,6 +97,7 @@ function renderTodos(arr) {
 
   todoContainer.innerHTML = todoHTML;
 }
+
 
 function searchTodo(event) {
   // 1. 검색어 입력 값을 받아와서
@@ -150,6 +158,24 @@ function addTodo() {
       let SuccessMessage = document.getElementById("success-text");
       SuccessMessage.style.display = "none";
     }, 2000);
+  }
+}
+
+function editTodo(event) {
+  const todoInput = event.target.closest('div').parentNode.getElementsByClassName('todo-inputbox')[0];
+  const todoId = event.target.closest('div').parentNode.dataset.id;
+
+  // 수정 중일 때 = editing-button
+  // 수정 중이 아닐 때 = edit-button
+  if (event.target.className == "edit-button"){
+    event.target.className = "editing-button";
+    todoInput.disabled = false;
+    todoInput.focus();
+  } else {
+    event.target.className = "edit-button";
+    // todos 배열에서 해당 ID를 가진 contents의 내용 수정
+    todos[todoId].contents = todoInput.value;
+    todoInput.disabled = true;
   }
 }
 
