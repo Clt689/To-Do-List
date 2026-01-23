@@ -4,17 +4,17 @@ const days = ["(일)", "(월)", "(화)", "(수)", "(목)", "(금)", "(토)"];
 let todos = [
   {
     id: 0,
-    contents: "To Do 1",
+    contents: "빨래하기",
     isDone: true,
   },
   {
     id: 1,
-    contents: "To Do 2 To Do 2 To Do 2 To Do 2 To Do 2 To Do 2 ",
+    contents: "기술 블로그 작성하기",
     isDone: false,
   },
   {
     id: 2,
-    contents: "To Do 3",
+    contents: "OO은행 서류 제출",
     isDone: false,
   },
 ];
@@ -57,7 +57,7 @@ function setDate() {
   if (date < 10) {
     date = `0${date}`;
   }
-  today = year + ". " + month + ". " + date + " " + day;
+  today = "🗓️ " + year + "-" + month + "-" + date + " " + day;
 
   document.getElementById("date").innerHTML = today;
 }
