@@ -63,13 +63,15 @@
   color: white;
   border: none;
   font-size: 16px;
-  background-color: #007bff;
-  border-radius: 5px;
+  background-color: #3182f6;
+  border-radius: 0.2rem;
   padding: 8px 12px;
 }
 
 .add-todo-button:hover {
+  transition: 0.15s;
   cursor: pointer;
+  background-color: #2272eb;
 }
 
 .searchbar,
