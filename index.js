@@ -185,7 +185,7 @@ function deleteTodo(event) {
   if (checkDelete) {
     // 클릭하여 todo를 삭제
     // 1. 선택한 해당 todo의 id 값을 받아와야 함
-    const todoId = event.target.closest("div").dataset.id;
+    const todoId = event.target.closest("div").parentNode.dataset.id;
 
     // 2. todos 배열에서 해당 id 값을 갖고 있는 요소를 splice(인덱스,1)를 통해 삭제
     const getIndex = todos.findIndex((todo) => todo.id == todoId);
