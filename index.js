@@ -37,10 +37,6 @@ todoContainer.addEventListener("change", (event) => {
 });
 
 
-// todo 수정 시
-const todoItem = document.get
-
-
 function setDate() {
   // 자동으로 오늘 날짜 설정
   let today = new Date();
@@ -173,7 +169,7 @@ function editTodo(event) {
     todoInput.focus();
   } else {
     event.target.className = "edit-button";
-    // todos 배열에서 해당 ID를 가진 contents의 내용 수정
+    // todos 배열에서 해당 ID를 가진 todo의 내용 수정
     todos[todoId].contents = todoInput.value;
     todoInput.disabled = true;
   }
