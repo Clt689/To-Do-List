@@ -1,7 +1,7 @@
 const days = ["(일)", "(월)", "(화)", "(수)", "(목)", "(금)", "(토)"];
 
 // todo 배열
-let todos = [
+const todos = [
   {
     id: 0,
     contents: "빨래하기",
@@ -20,16 +20,16 @@ let todos = [
 ];
 
 
-// todo 완료(체크)할 때마다 리렌더링하는 로직
+// todo 완료(체크)할 때마다 리렌더링
 const todoContainer = document.getElementById("todo-container");
 
 todoContainer.addEventListener("change", (event) => {
   if (!event.target.matches('input[type="checkbox"]')) return;
 
   const todoDiv = event.target.closest(".todo-task");
-  const id = Number(todoDiv.dataset.id); // todoDiv.dataset.id는 타입이 string
+  const id = todoDiv.dataset.id;
 
-  const todo = todos.find((data) => data.id === id);
+  const todo = todos.find((data) => data.id == id);
   todo.isDone = event.target.checked;
 
   // todo 리렌더링
@@ -58,14 +58,12 @@ function setDate() {
   document.getElementById("date").innerHTML = today;
 }
 
-function renderTodos(arr) {
+function renderTodos(todos) {
   setDate();
 
   // 현재 todo를 모두 렌더링
-  const todoContainer = document.getElementById("todo-container");
-
-  const undoneTodo = arr.filter((todo) => !todo.isDone);
-  const doneTodo = arr.filter((todo) => todo.isDone);
+  const undoneTodo = todos.filter((todo) => !todo.isDone);
+  const doneTodo = todos.filter((todo) => todo.isDone);
 
   // undoneTodo와 doneTodo를 합친 배열
   const todoArr = [...undoneTodo, ...doneTodo];
@@ -114,8 +112,6 @@ function searchTodo(event) {
 
   if (filteredTodos.length == 0) {
     // 검색된 todo가 0개일 때
-    const todoContainer = document.getElementById("todo-container");
-
     const noResultDiv = document.createElement("div");
     renderTodos([]); // 빈 배열 전달
     noResultDiv.className = "no-result-text";
