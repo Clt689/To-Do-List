@@ -30,6 +30,8 @@
 }
 
 .kakao-login:hover {
+  transition: 0.1s;
+  transform: scale(1.02);
   cursor: pointer;
 }
 
