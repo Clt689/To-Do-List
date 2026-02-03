@@ -9,7 +9,8 @@
     <title>To Do List Login</title>
     <link rel="stylesheet" href="./index.css" />
     <link rel="icon" href="/images/favicon.ico"/>
-    <script src="./index.js" defer></script>
+    <script src="./kakao-login.js" defer></script>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.9/kakao.min.js" integrity="sha384-JpLApTkB8lPskhVMhT+m5Ln8aHlnS0bsIexhaak0jOhAkMYedQoVghPfSpjNi9K1" crossorigin="anonymous"></script>
   </head>
 
   <body class="login-body">
@@ -22,10 +23,18 @@
         <text class="cheering-message">카카오 로그인을 통해 사용할 수 있어요.</text>
       </header>
       <button class="kakao-login">
-        <a href="main.html">
+        <a  onclick="loginWithKakao()">
           <img src="/images/kakao_login_medium_narrow.png">
         </a>
       </button>
     </div>
   </body>
 </html>
+
+<script>
+    // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해야 합니다.
+    Kakao.init('a6ee625315c851b229f02fb60b862dd9');
+
+    // SDK 초기화 여부를 판단합니다.
+    // console.log(Kakao.isInitialized());
+  </script>
