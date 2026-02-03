@@ -1,12 +1,36 @@
+.login-body {
+  max-width: 500px;
+  min-width: 400px;
+  box-shadow: rgba(100, 100, 100, 0.2) 0px 0px 150px 0px;
+  padding: 0px 20px;
+  min-height: 100%;
+  border-radius: 5px;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+
 .body {
   max-width: 500px;
   min-width: 400px;
   width: 55%;
+  height: 100vh;
   box-shadow: rgba(100, 100, 100, 0.2) 0px 0px 150px 0px;
   padding: 0px 20px;
   border-radius: 5px;
   text-align: center;
+  align-items: center;
   margin: 0 auto;
+}
+
+.kakao-login {
+  border: none;
+  background-color: white;
+}
+
+.kakao-login:hover {
+  cursor: pointer;
 }
 
 .header {

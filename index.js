@@ -143,13 +143,13 @@ function addTodo() {
 
     // 추가 완료됐으면 input 값 초기화
     document.getElementById("input-value").value = "";
-    showSuccessText();
+    // showSuccessText();
 
     // 완료 메시지는 2초 후에 사라짐
-    setTimeout(() => {
-      let SuccessMessage = document.getElementById("success-text");
-      SuccessMessage.style.display = "none";
-    }, 2000);
+    // setTimeout(() => {
+    //   let SuccessMessage = document.getElementById("success-text");
+    //   SuccessMessage.style.display = "none";
+    // }, 2000);
   }
 }
 

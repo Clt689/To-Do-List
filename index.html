@@ -6,36 +6,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To Do List</title>
+    <title>To Do List Login</title>
     <link rel="stylesheet" href="./index.css" />
     <link rel="icon" href="/images/favicon.ico"/>
     <script src="./index.js" defer></script>
   </head>
 
-  <!-- <button type="button" onclick="showSuccessText()">테스트</button> -->
-  <body class="body" onload="renderTodos(todos)">
-    <header class="header">
-      <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-        <img src="/images/logo-text.png" width="150rem">
-        <img src="/images/favicon.ico" width="40rem" height="40rem">
-      </div>
-      <text class="cheering-message">오늘 하루도 응원할게요! :)</text>
-      <span class="date-container" id="date"></span>
-    </header>
-    <main id="main-container" class="main-container">
-      <div class="search-container">
-        <input
-          id="input-value"
-          value=""
-          class="inputbar"
-          placeholder="할 일을 입력하세요.."
-        />
-        <button class="add-todo-button" onclick="addTodo()">+ 추가하기</button>
-        <!-- <input id="search-value" value="" class="searchbar" placeholder="검색어를 입력하세요..." /> -->
-        <!-- <button onclick="searchTodo()" class="search-button">검색</button> -->
-      </div>
-      <div class="add-button-container"></div>
-    </main>
-    <section id="todo-container" class="todo-container"></section>
+  <body class="login-body">
+    <div style="display: flex; justify-content: center; flex-direction: column;">
+      <header class="header">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+          <img src="/images/logo-text.png" width="150rem">
+          <img src="/images/favicon.ico" width="40rem" height="40rem">
+        </div>
+        <text class="cheering-message">카카오 로그인을 통해 사용할 수 있어요.</text>
+      </header>
+      <button class="kakao-login">
+        <a href="main.html">
+          <img src="/images/kakao_login_medium_narrow.png">
+        </a>
+      </button>
+    </div>
   </body>
 </html>
