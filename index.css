@@ -8,6 +8,7 @@
   margin: 0 auto;
   justify-content: center;
   text-align: center;
+  flex-direction: column;
   display: flex;
 }
 
@@ -33,6 +34,27 @@
   transition: 0.1s;
   transform: scale(1.02);
   cursor: pointer;
+}
+
+.dinotaeng-container {
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: end;
+}
+
+.greeting-dinotaeng {
+  width: 6rem;
+  margin-bottom: 2rem;
+}
+
+.login-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Pretendard;
+  padding: 0px 0px 30px 0px;
+  gap: 20px;
 }
 
 .header {
